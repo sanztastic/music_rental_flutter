@@ -2,23 +2,24 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_rental_flutter/network/network_service.dart';
-import 'package:music_rental_flutter/pages/homepage/user/user_home.dart';
 import 'package:music_rental_flutter/pages/static/static_values.dart';
+
+import '../admin_home.dart';
 
 final storage = FlutterSecureStorage();
 
-class LoginProvider with ChangeNotifier {
+class AdminLoginProvider with ChangeNotifier {
   bool loading = false;
   void loginUser({
     required TextEditingController? email,
     required TextEditingController? password,
     required BuildContext context,
   }) async {
-    loading = true;
+    // loading = true;
     if (email!.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Email field is empty"),
+          content: Text("Username field is empty"),
         ),
       );
       loading = false;
@@ -32,12 +33,13 @@ class LoginProvider with ChangeNotifier {
     } else {
       final response = await NetworkService.sendRequest(
         requestType: RequestType.post,
-        url: StaticValues.apiUrlUser + "/login",
+        url: StaticValues.apiUrlAdmin + "/login",
         body: {
           'password': password.text,
-          'email': email.text,
+          'username': email.text,
         },
       );
+      print(response?.body);
       final resMap = json.decode(response!.body);
       if (resMap["success"] == 0) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -47,11 +49,11 @@ class LoginProvider with ChangeNotifier {
         );
       } else {
         await storage.write(key: "userToken", value: resMap["token"]);
-        await storage.write(key: "auth", value:"user");
+        await storage.write(key: "auth", value:"admin");
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (BuildContext context) => const UserHomePage()));
+                builder: (BuildContext context) => const AdminHome()));
       }
       loading = false;
     }

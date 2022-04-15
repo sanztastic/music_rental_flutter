@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:music_rental_flutter/pages/welcome/welcome_page.dart';
+
+import '../../../main.dart';
+import '../../../widgets/admin_drawer.dart';
+import '../../../widgets/item_widget.dart';
+import '../../models/product.dart';
 
 class AdminHome extends StatefulWidget {
   const AdminHome({Key? key}) : super(key: key);
@@ -10,6 +16,37 @@ class AdminHome extends StatefulWidget {
 class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      drawer: const AdminBuildDrawer(),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+            onPressed: () {
+              storage.deleteAll();
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const WelcomePage()));
+            },
+            icon: const Icon(
+              Icons.exit_to_app,
+            ),
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: ListView.builder(
+            itemCount: CatalogModel.items.length,
+            itemBuilder: (context, index) {
+              return ItemWidget(product: CatalogModel.items[index]);
+            }),
+      ),
+    );
   }
 }
