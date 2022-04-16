@@ -11,11 +11,11 @@ class CatalogModel {
 }
 
 class Product {
-  final int id;
-  final String name;
-  final String desc;
-  final num price;
-  String image;
+  late int? id;
+  late String? name;
+  late String? desc;
+  late num? price;
+  late String? image;
 
   Product(
       {required this.id,
@@ -23,4 +23,23 @@ class Product {
       required this.desc,
       required this.price,
       required this.image});
+
+      Product.fromJson(Map<String,dynamic> json){
+        id = json["id"];
+        name = json["name"];
+        desc = json["desc"];
+        price = json["price"];
+        image = json["image"];
+      }
+
+      Map<String,dynamic> toJson(){
+        final _data = <String,dynamic>{};
+        _data["id"] = id;
+        _data["name"] = name;
+        _data["desc"] = desc;
+        _data["price"] = price;
+        _data["image"] = image;
+
+        return _data;
+      }
 }

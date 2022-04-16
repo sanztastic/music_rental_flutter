@@ -14,15 +14,15 @@ class ItemWidget extends StatelessWidget {
         onTap: () {
           print("${product.name} pressed");
         },
-        leading: Image.network(product.image),
-        title: Text(product.name),
-        subtitle: Text(product.desc),
+        leading: Image.network(product.image!),
+        title: Text(product.name!),
+        subtitle: Text(product.desc!),
         trailing: Text(
           "Rs." + product.price.toString(),
           textScaleFactor: 1.5,
           style: TextStyle(
             color: Colors.deepPurple,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.bold
           ),
         ),
       ),
