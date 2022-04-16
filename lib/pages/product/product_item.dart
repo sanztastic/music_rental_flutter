@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:music_rental_flutter/pages/product/product_add_edit.dart';
 
 import '../models/product.dart';
 
@@ -70,9 +71,10 @@ class ProductItem extends StatelessWidget {
                   GestureDetector(
                     child :const Icon(Icons.edit),
                     onTap: (){
-                      Navigator.of(context).pushNamed('./edit-product',arguments: {
-                        'model':model
-                      });
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>
+                     const ProductAddEdit(),
+                    ));
+
                     },
                     ),
                     GestureDetector(

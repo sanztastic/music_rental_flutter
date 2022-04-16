@@ -5,6 +5,7 @@ import '../../../main.dart';
 import '../../../widgets/admin_drawer.dart';
 import '../../../widgets/item_widget.dart';
 import '../../models/product.dart';
+import '../../product/product_list.dart';
 
 class AdminHome extends StatefulWidget {
   const AdminHome({Key? key}) : super(key: key);
@@ -39,14 +40,9 @@ class _AdminHomeState extends State<AdminHome> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: ListView.builder(
-            itemCount: CatalogModel.items.length,
-            itemBuilder: (context, index) {
-              return ItemWidget(product: CatalogModel.items[index]);
-            }),
-      ),
+      body: 
+      ProductList(),
+      
     );
   }
 }

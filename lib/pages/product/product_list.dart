@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_rental_flutter/pages/models/product.dart';
+import 'package:music_rental_flutter/pages/product/product_add_edit.dart';
 import 'package:music_rental_flutter/pages/product/product_item.dart';
 
 class ProductList extends StatefulWidget {
@@ -67,7 +68,9 @@ class _ProductListState extends State<ProductList> {
                   )
                   ),
                   onPressed: (){
-                    Navigator.pushNamed(context, "/add-product");
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>
+                     const ProductAddEdit(),
+                    ));
 
                   },
                   child: const Text("Add Product"),

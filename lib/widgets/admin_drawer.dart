@@ -56,6 +56,5 @@ class AdminBuildDrawer extends StatelessWidget {
         ],
       ),
     );
-    ;
   }
 }
