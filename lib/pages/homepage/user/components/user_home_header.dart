@@ -10,8 +10,13 @@ class ProductHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Music Rental".text.xl4.bold.color(StaticValues.darkBluishColor).make(),
-        "Trending Products".text.xl.make(),
+        "Music Instrument Rental"
+            .text
+            .xl3
+            .bold
+            .color(StaticValues.darkBluishColor)
+            .make(),
+        "Available Instrument".text.xl.make(),
       ],
     );
   }
