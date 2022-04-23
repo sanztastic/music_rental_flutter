@@ -11,7 +11,7 @@ class TopPart extends StatelessWidget {
         Column(
           children: const [
             Text(
-              "Welcome to Musical Instrument Rental",
+              "Welcome to \n Musical Instrument Rental",
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,

@@ -110,17 +110,17 @@ class _CheckoutState extends State<Checkout> {
                         setState(() {
                           _isLoading = true;
                         });
-                        // for (var element in _cart.products) {
-                        //   NetworkService.sendAuthRequest(
-                        //       requestType: RequestType.post,
-                        //       url: StaticValues.apiUrlOrder,
-                        //       body: {
-                        //         "orderDate": DateTime.now().toString(),
-                        //         "customerId":
-                        //             await storage.read(key: "customer_id"),
-                        //         "productId": element.id,
-                        //       });
-                        // }
+                        for (var element in _cart.products) {
+                          NetworkService.sendAuthRequest(
+                              requestType: RequestType.post,
+                              url: StaticValues.apiUrlOrder,
+                              body: {
+                                "orderDate": DateTime.now().toString(),
+                                "customerId":
+                                    await storage.read(key: "customer_id"),
+                                "productId": element.id,
+                              });
+                        }
                         setState(() {
                           _isLoading = false;
                         });
