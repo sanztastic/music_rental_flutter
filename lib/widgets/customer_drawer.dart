@@ -2,11 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:music_rental_flutter/pages/homepage/admin/admin_home.dart';
 import 'package:music_rental_flutter/pages/homepage/admin/orders/orders.dart';
-import 'package:music_rental_flutter/pages/homepage/user/user_home.dart';
-import 'package:music_rental_flutter/pages/login/login_page.dart';
 import 'package:music_rental_flutter/pages/welcome/welcome_page.dart';
 
-import '../main.dart';
 
 final storage = FlutterSecureStorage();
 

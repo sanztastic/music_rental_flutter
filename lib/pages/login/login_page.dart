@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:music_rental_flutter/pages/forgotPassword/forgotPasswordFirstPage.dart';
 import 'package:music_rental_flutter/pages/login/components/login_provider.dart';
 import 'package:music_rental_flutter/widgets/my_button.dart';
 import 'package:provider/provider.dart';
@@ -81,6 +82,25 @@ class _LoginPageState extends State<LoginPage> {
                   : const Center(
                       child: CircularProgressIndicator(),
                     ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text("Forgot your password?\t\t"),
+                      GestureDetector(
+                        onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const ForgotPasswordPageOne()),
+                          ),
+                        },
+                        child: const Text("Click Here!!"),
+                      ),
+                    ],
+                  ),
             ],
           ),
         ),

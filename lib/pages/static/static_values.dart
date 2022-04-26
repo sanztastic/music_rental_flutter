@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 class StaticValues {
   const StaticValues._();
-  static const String host = "http://192.168.254.4:3000";
+  static const String host = "http://localhost:3000";
 
   static const String apiUrlUser = host + '/api/users';
   static const String apiUrlAdmin = host + '/api/admin';
